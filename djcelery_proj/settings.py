@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'kombu.transport.django',
     'djcelery',  # 添加 djcelery
-
+    'polls',
 ]
 
 MIDDLEWARE_CLASSES = [
