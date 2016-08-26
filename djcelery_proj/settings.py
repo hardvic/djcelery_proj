@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'kombu.transport.django',
+    # 'kombu.transport.django',
     'djcelery',  # 添加 djcelery
     'polls',
 ]
