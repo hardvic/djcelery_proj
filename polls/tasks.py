@@ -29,3 +29,9 @@ def mul(x, y):
 @shared_task
 def xsum(numbers):
     return sum(numbers)
+
+
+@shared_task
+def test(numbers):
+    chain(add_1(1, 2) | add_2(4) | mul(5))().get()
+
