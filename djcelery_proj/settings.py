@@ -137,3 +137,39 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Log 配置
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/liuquan/pycharm_workspace/djcelery_test/djcelery_proj/debug.log',
+        },
+        'poll_tasks_file': {
+            'backupCount': 10,
+            'level': 'DEBUG',
+            # 'class': 'logging.FileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '/home/liuquan/pycharm_workspace/djcelery_test/djcelery_proj/polls_tasks.log',
+            'maxBytes': 1024 * 1024 * 10,
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'polls.tasks': {
+            'handlers': ['poll_tasks_file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+

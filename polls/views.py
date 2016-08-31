@@ -17,16 +17,16 @@ def index(request):
 
 def add(request):
     result = {}
-    result['x'] = request.GET.get('x')
-    result['y'] = request.GET.get('y')
+    result['x'] = int(request.GET.get('x'))
+    result['y'] = int(request.GET.get('y'))
     result['result'] = add_t.delay(result['x'], result['y'])
     return HttpResponse(result, content_type='text/json')
 
 
 def mul(request):
     result = {}
-    result['x'] = request.GET.get('x')
-    result['y'] = request.GET.get('y')
+    result['x'] = int(request.GET.get('x'))
+    result['y'] = int(request.GET.get('y'))
     result['result'] = mul_t.delay(result['x'], result['y'])
     return HttpResponse(result, content_type='text/json')
 
